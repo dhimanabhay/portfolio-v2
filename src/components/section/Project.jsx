@@ -76,7 +76,7 @@ const ProjectList = ({ closeList }) => {
                   <p className="text-sm  text-gray-500">
                     {project.tech}
                   </p>
-                  <p className="text-sm py-0 text-gray-500">{project.description}</p>
+                  <p className="text-sm pb-2 sm:py-0 text-gray-500">{project.description}</p>
                   <div className="flex flex-row gap-4 text-sm">
                         <a href={project.demoLink} target="_blank" rel="noreferrer" className="cursor-pointer transition hover:text-react-link-hover">Demo</a>
                         <a href={project.githubLink} target="_blank" rel="noreferrer" className="cursor-pointer transition hover:text-react-link-hover">Code</a>
