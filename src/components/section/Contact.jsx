@@ -36,7 +36,7 @@ export default function Contact() {
   };
 
   return (
-    <main class="mx-auto mt-40 mb-24 max-w-3xl px-6 w-full grow">
+    <main id="contact" class="mx-auto mt-40 mb-24 max-w-3xl px-6 w-full grow">
       <section class="relative isolate">
         <svg
           class="absolute inset-0 -z-10 h-full w-full stroke-zinc-200 dark:stroke-zinc-700 [mask-image:radial-gradient(100%_100%_at_top_right,white,transparent)]"

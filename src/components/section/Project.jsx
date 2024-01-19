@@ -16,11 +16,11 @@ const ProjectData = [
   },
   {
     // image: tesla_clone,
-    title: "Tesla",
+    title: "SpaceX",
     tech: "ReactJS",
-    githubLink: "https://github.com/dhimanabhay/tesla-clone",
-    demoLink: "https://tesla-clone-jet-theta.vercel.app",
-    description: "A tesla front end clone created using react and react hooks.",
+    githubLink: "https://github.com/dhimanabhay/spacex",
+    demoLink: "https://spacex-rocket.vercel.appp",
+    description: "A SpaceX clone created using reactJS, react folder management and routes.",
   },
   {
     // image: uber_clone,
