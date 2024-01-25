@@ -7,20 +7,20 @@ import { useState } from "react";
 const ProjectData = [
   {
     // image: outfit,
-    title: "Outfit",
-    tech: "ThreeJS",
-    githubLink: "https://github.com/dhimanabhay/Outfit",
-    demoLink: "https://outfit3d.vercel.app",
-    description:
-      "A t-shirt design website which uses ThreeJS, 3D shirt model and file-upload for design.",
+    title: "Koho",
+    tech: "ReactJS",
+    githubLink: "https://github.com/dhimanabhay/koho",
+    demoLink: "https://koho-bank.vercel.app",
+    description: "A front end clone for KOHO banking made using reactjs.",
   },
   {
     // image: tesla_clone,
     title: "SpaceX",
     tech: "ReactJS",
     githubLink: "https://github.com/dhimanabhay/spacex",
-    demoLink: "https://spacex-rocket.vercel.appp",
-    description: "A SpaceX clone created using reactJS, react folder management and routes.",
+    demoLink: "https://spacex-rocket.vercel.app",
+    description:
+      "A SpaceX clone created using reactJS, react folder management and routes.",
   },
   {
     // image: uber_clone,
@@ -34,6 +34,62 @@ const ProjectData = [
   {
     // image: uber_clone,
     title: "To Do",
+    tech: "ReactJS",
+    githubLink: "https://github.com/dhimanabhay/To-Do",
+    demoLink: "https://do-me.vercel.app",
+    description:
+      "A simple app using reactjs and react hooks which can help to plan your day.",
+  },
+];
+
+const ProjectListData = [
+  {
+    // image: outfit,
+    title: "Koho",
+    tech: "ReactJS",
+    githubLink: "https://github.com/dhimanabhay/koho",
+    demoLink: "https://koho-bank.vercel.app",
+    description: "A front end clone for KOHO banking made using reactjs.",
+  },
+  {
+    // image: outfit,
+    title: "Outfit",
+    tech: "ThreeJS",
+    githubLink: "https://github.com/dhimanabhay/Outfit",
+    demoLink: "https://outfit3d.vercel.app",
+    description:
+      "A t-shirt design website which uses ThreeJS, 3D shirt model and file-upload for design.",
+  },
+  {
+    // image: tesla_clone,
+    title: "SpaceX",
+    tech: "ReactJS",
+    githubLink: "https://github.com/dhimanabhay/spacex",
+    demoLink: "https://spacex-rocket.vercel.app",
+    description:
+      "A SpaceX clone created using reactJS, react folder management and routes.",
+  },
+  {
+    // image: uber_clone,
+    title: "Uber",
+    tech: "React Native",
+    githubLink: "https://github.com/dhimanabhay/Uber",
+    demoLink: "https://github.com/dhimanabhay/Uber",
+    description:
+      "An uber clone app which uses react native, redux and google api to book rides.",
+  },
+  {
+    // image: uber_clone,
+    title: "To Do",
+    tech: "ReactJS",
+    githubLink: "https://github.com/dhimanabhay/To-Do",
+    demoLink: "https://do-me.vercel.app",
+    description:
+      "A simple app using reactjs and react hooks which can help to plan your day.",
+  },
+  {
+    // image: uber_clone,
+    title: "CGPA",
     tech: "ReactJS",
     githubLink: "https://github.com/dhimanabhay/To-Do",
     demoLink: "https://do-me.vercel.app",
@@ -62,25 +118,35 @@ const ProjectList = ({ closeList }) => {
         </svg>
         <text className="ml-2 font-mono">back</text>
       </div>
-
-      {/* <h2 className="text-xl mb-4 font-bold font-mono dark:text-slate-100">
-        All Projects
-      </h2> */}
       <ul className="mb-6">
-        {ProjectData.map((project) => (
+        {ProjectListData.map((project) => (
           <li>
             <a href={project.demoLink} target="_blank" rel="noreferrer">
               <div className="flex dark:bg-[rgb(33,35,42)] flex-col items-start rounded-3xl font-mono dark:text-slate-100">
                 <div className="my-4">
                   <h3 className="font-semibold text-lg ">{project.title}</h3>
-                  <p className="text-sm  text-gray-500">
-                    {project.tech}
+                  <p className="text-sm  text-gray-500">{project.tech}</p>
+                  <p className="text-sm pb-2 sm:py-0 text-gray-500">
+                    {project.description}
                   </p>
-                  <p className="text-sm pb-2 sm:py-0 text-gray-500">{project.description}</p>
                   <div className="flex flex-row gap-4 text-sm">
-                        <a href={project.demoLink} target="_blank" rel="noreferrer" className="cursor-pointer transition hover:text-react-link-hover">Demo</a>
-                        <a href={project.githubLink} target="_blank" rel="noreferrer" className="cursor-pointer transition hover:text-react-link-hover">Code</a>
-                      </div>
+                    <a
+                      href={project.demoLink}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="cursor-pointer transition hover:text-react-link-hover"
+                    >
+                      Demo
+                    </a>
+                    <a
+                      href={project.githubLink}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="cursor-pointer transition hover:text-react-link-hover"
+                    >
+                      Code
+                    </a>
+                  </div>
                 </div>
               </div>
             </a>
@@ -97,6 +163,14 @@ const Project = () => {
   const toggleProjectList = () => {
     setProjectList(!projectList);
     console.log(projectList);
+
+    const projectsElement = document.getElementById("projects");
+
+    // Check if the element exists before trying to scroll
+    if (projectsElement) {
+      // Scroll to the top of the "projects" element
+      projectsElement.scrollIntoView({ behavior: "smooth" });
+    }
   };
 
   return (
@@ -125,8 +199,22 @@ const Project = () => {
                         {project.description}
                       </p>
                       <div className="flex flex-row gap-4 ">
-                        <a href={project.demoLink} target="_blank" rel="noreferrer" className="cursor-pointer transition hover:text-react-link-hover">Demo</a>
-                        <a href={project.githubLink} target="_blank" rel="noreferrer" className="cursor-pointer transition hover:text-react-link-hover">Code</a>
+                        <a
+                          href={project.demoLink}
+                          target="_blank"
+                          rel="noreferrer"
+                          className="cursor-pointer transition hover:text-react-link-hover"
+                        >
+                          Demo
+                        </a>
+                        <a
+                          href={project.githubLink}
+                          target="_blank"
+                          rel="noreferrer"
+                          className="cursor-pointer transition hover:text-react-link-hover"
+                        >
+                          Code
+                        </a>
                       </div>
                     </div>
                   </div>
