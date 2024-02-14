@@ -89,10 +89,19 @@ const ProjectListData = [
   },
   {
     // image: uber_clone,
+    title: "Blog",
+    tech: "NextJS",
+    githubLink: "https://github.com/dhimanabhay/next-blog",
+    demoLink: "https://github.com/dhimanabhay/next-blog",
+    description:
+      "A simple app using reactjs and react hooks which can help to plan your day.",
+  },
+  {
+    // image: uber_clone,
     title: "CGPA",
     tech: "ReactJS",
-    githubLink: "https://github.com/dhimanabhay/To-Do",
-    demoLink: "https://do-me.vercel.app",
+    githubLink: "https://github.com/dhimanabhay/grade_cal",
+    demoLink: "https://github.com/dhimanabhay/grade_cal",
     description:
       "A simple app using reactjs and react hooks which can help to plan your day.",
   },
@@ -195,10 +204,10 @@ const Project = () => {
                       <h3 className="text-sm pt-1 text-react-link-hover">
                         {project.tech}
                       </h3>
-                      <p className="text-sm pt-4 h-[80px] text-gray-500 ">
+                      <p className="text-sm my-2 h-[80px] text-gray-500 ">
                         {project.description}
                       </p>
-                      <div className="flex flex-row gap-4 ">
+                      <div className="flex flex-row gap-4">
                         <a
                           href={project.demoLink}
                           target="_blank"
