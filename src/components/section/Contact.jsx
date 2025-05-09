@@ -20,26 +20,28 @@ export default function Contact() {
         EMAIL_PUBLIC_KEY
       )
       .then(
-         async (result) => {
+        async (result) => {
           console.log(result.text);
           form.current.reset();
           setButtonText("Message Sent");
           await wait(5000);
           setButtonText("Send");
-
         },
         (error) => {
           console.log(error.text);
-          setButtonText("Unable to send")
+          setButtonText("Unable to send. Reload to retry");
         }
       );
   };
 
   return (
-    <main id="contact" class="mx-auto mt-40 mb-24 max-w-3xl px-6 w-full grow">
+    <main
+      id="contact"
+      class="mx-auto mt-40 mb-24 px-6 w-full grow lg:w-[920px]"
+    >
       <section class="relative isolate">
         <svg
-          class="absolute inset-0 -z-10 h-full w-full stroke-zinc-200 dark:stroke-zinc-700 [mask-image:radial-gradient(100%_100%_at_top_right,white,transparent)]"
+          class="absolute inset-0 -z-10 h-full w-full stroke-gray-300 dark:stroke-zinc-700 [mask-image:radial-gradient(100%_100%_at_top_right,white,transparent)]"
           aria-hidden="true"
         >
           <defs>
@@ -57,7 +59,7 @@ export default function Contact() {
           <svg
             x="50%"
             y="-64"
-            class="overflow-visible fill-zinc-50 dark:fill-zinc-900/75"
+            class="overflow-visible fill-gray-300 dark:fill-zinc-900/75"
           >
             <path
               d="M-100.5 0h201v201h-201Z M699.5 0h201v201h-201Z M499.5 400h201v201h-201Z M299.5 800h201v201h-201Z"
@@ -95,7 +97,7 @@ export default function Contact() {
                       placeholder="Name"
                       autocomplete="given-name"
                       name="user_name"
-                      class="block w-full rounded-md bg-transparent border-0 px-3.5 py-2 shadow-sm ring-1 ring-inset ring-zinc-200 dark:ring-zinc-700 placeholder:text-zinc-400 focus:ring-1 focus:ring-inset focus:ring-react-link sm:text-sm sm:leading-6"
+                      class="block w-full rounded-md bg-transparent border-0 px-3.5 py-2 shadow-sm ring-1 ring-inset ring-gray-400 dark:ring-zinc-700 placeholder:text-zinc-400 focus:ring-1 focus:ring-inset focus:ring-react-link sm:text-sm sm:leading-6"
                     />
                   </div>
                 </div>
@@ -113,7 +115,7 @@ export default function Contact() {
                       autocomplete="email"
                       placeholder="Email"
                       name="user_email"
-                      class="block w-full rounded-md bg-transparent border-0 px-3.5 py-2 shadow-sm ring-1 ring-inset ring-zinc-200 dark:ring-zinc-700 placeholder:text-zinc-400 focus:ring-1 focus:ring-inset focus:ring-react-link sm:text-sm sm:leading-6"
+                      class="block w-full rounded-md bg-transparent border-0 px-3.5 py-2 shadow-sm ring-1 ring-inset ring-gray-400 dark:ring-zinc-700 placeholder:text-zinc-400 focus:ring-1 focus:ring-inset focus:ring-react-link sm:text-sm sm:leading-6"
                     />
                   </div>
                 </div>
@@ -130,7 +132,7 @@ export default function Contact() {
                       placeholder="Message"
                       name="message"
                       rows="4"
-                      class="block w-full rounded-md bg-transparent border-0 px-3.5 py-2 shadow-sm ring-1 ring-inset ring-zinc-200 dark:ring-zinc-700 placeholder:text-zinc-400 focus:ring-1 focus:ring-inset focus:ring-react-link sm:text-sm sm:leading-6"
+                      class="block w-full rounded-md bg-transparent border-0 px-3.5 py-2 shadow-sm ring-1 ring-inset ring-gray-400 dark:ring-zinc-700 placeholder:text-zinc-400 focus:ring-1 focus:ring-inset focus:ring-react-link sm:text-sm sm:leading-6"
                     ></textarea>
                   </div>
                 </div>
@@ -139,7 +141,22 @@ export default function Contact() {
                 <button
                   type="submit"
                   value="Send"
-                  class={`block w-full rounded-md dark:bg-white px-3.5 py-2.5 text-center text-sm font-semibold  shadow-sm hover:bg-opacity-90 dark:hover:bg-opacity-90 transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-react--hover ${buttonText === "Message Sent" ? 'text-green-700' : ''} ${buttonText === "Send" ? 'text-white dark:text-black' : ''} ${buttonText === "Unable to send" ? 'text-red-500' : ''}`}
+                  class={`block w-full rounded-md dark:bg-white px-3.5 py-2.5 text-center text-sm font-semibold  shadow-sm hover:bg-opacity-90 dark:hover:bg-opacity-90 transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-react--hover
+                    ${
+                      buttonText === "Message Sent"
+                        ? "text-green-700 dark:bg-gray-300"
+                        : ""
+                    } 
+                    ${
+                      buttonText === "Send"
+                        ? "text-white bg-gray-900 dark:text-black"
+                        : ""
+                    }
+                    ${
+                      buttonText === "Unable to send. Reload to retry"
+                        ? "text-red-600 bg-gray-300"
+                        : ""
+                    }`}
                 >
                   {buttonText}
                 </button>
@@ -152,6 +169,3 @@ export default function Contact() {
     </main>
   );
 }
-
-
-// text-white dark:text-black
